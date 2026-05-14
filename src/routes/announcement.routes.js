@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { createAnnouncement, getAnnouncements, getMyAnnouncements, deleteAnnouncement } = require("../controllers/announcement.controller");
-const { authenticate } = require("../middleware/auth.middleware");
+const authenticate = require("../middleware/auth.middleware");
 const authorize = require("../middleware/role.middleware");
 
 router.post("/", authenticate, authorize("ADMIN", "STAFF"), createAnnouncement);
