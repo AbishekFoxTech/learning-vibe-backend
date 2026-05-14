@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { checkIn, checkOut, getMyAttendance, getStudentAttendance, markAttendance, getTodayStatus } = require("../controllers/attendance.controller");
 const { authenticate } = require("../middleware/auth.middleware");
-const { authorize } = require("../middleware/role.middleware");
+const authorize = require("../middleware/role.middleware");
 
 router.post("/checkin", authenticate, authorize("STUDENT"), checkIn);
 router.post("/checkout", authenticate, authorize("STUDENT"), checkOut);

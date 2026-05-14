@@ -9,7 +9,7 @@ const {
   deleteGroupTask,
 } = require("../controllers/groupTask.controller");
 const { authenticate } = require("../middleware/auth.middleware");
-const { authorize } = require("../middleware/role.middleware");
+const authorize = require("../middleware/role.middleware");
 
 router.post("/", authenticate, authorize("ADMIN", "STAFF"), createGroupTask);
 router.get("/group/:groupId", authenticate, getGroupTasks);
